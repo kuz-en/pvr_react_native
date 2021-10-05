@@ -72,7 +72,6 @@ const Main = ({ navigation }) => (
                         size={24}
                         color='silver'
                         onPress={() => {
-                            console.log(item);
                             navigation.navigate('Products', item);
                         }}
                     />

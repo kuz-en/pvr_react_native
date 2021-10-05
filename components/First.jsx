@@ -6,25 +6,38 @@ import {
     SafeAreaView,
     StatusBar,
     ScrollView,
+    TouchableOpacity,
 } from 'react-native';
 import { gStyle } from '../styles/style';
 
-export default function First() {
+export default function First({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                <View style={styles.itemFirst}>
-                    <Text style={styles.text}>НА РОДЫ</Text>
-                </View>
-                <View style={styles.itemSecond}>
-                    <Text style={styles.text}>МАМЕ ПОСЛЕ РОДОВ</Text>
-                </View>
-                <View style={styles.itemThird}>
-                    <Text style={styles.text}>ДЛЯ МАЛЫША</Text>
-                </View>
-                <View style={styles.itemFour}>
-                    <Text style={styles.text}>НА ВЫПИСКУ</Text>
-                </View>
+                <TouchableOpacity
+                    onPress={() => {
+                        navigation.navigate('Main');
+                    }}
+                >
+                    <View style={styles.itemFirst}>
+                        <Text style={styles.text}>НА РОДЫ</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <View style={styles.itemSecond}>
+                        <Text style={styles.text}>МАМЕ ПОСЛЕ РОДОВ</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <View style={styles.itemThird}>
+                        <Text style={styles.text}>ДЛЯ МАЛЫША</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <View style={styles.itemFour}>
+                        <Text style={styles.text}>НА ВЫПИСКУ</Text>
+                    </View>
+                </TouchableOpacity>
             </ScrollView>
         </SafeAreaView>
     );
