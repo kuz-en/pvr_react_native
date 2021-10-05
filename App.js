@@ -1,14 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView, StatusBar, StyleSheet, Text } from 'react-native';
+import { gStyle } from './styles/style';
+import * as Font from 'expo-font';
+import AppLoading from 'expo-app-loading';
+import MainStack from './navigate';
+
+const fonts = () => Font.loadAsync({
+  'source-sans': require('./assets/fonts/SourceSansPro-SemiBold.ttf'),
+  'open-sans': require('./assets/fonts/OpenSans-Regular.ttf')
+});
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  const [font, setFont] = useState(false);
+
+  if (font) {
+    return (
+      <MainStack />
+    );
+  } else {
+    return (
+      <AppLoading
+        startAsync={fonts} onFinish={() => setFont(true)}
+        onError={console.warn}
+      />
+    )
+  }
+
 }
 
 const styles = StyleSheet.create({
