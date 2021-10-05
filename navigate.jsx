@@ -15,14 +15,10 @@ export default function Navigate() {
                     name='Main'
                     component={Main}
                     options={{
-                        title: 'Главная!',
+                        title: 'Чек-лист в роддом',
                     }}
                 />
-                <Stack.Screen
-                    name='Products'
-                    component={Products}
-                    options={{ title: 'Описание...' }}
-                />
+                <Stack.Screen name='Products' component={Products} />
             </Stack.Navigator>
         </NavigationContainer>
     );
