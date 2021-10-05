@@ -49,25 +49,7 @@ const DATA = [
             },
         ],
     },
-    // {
-    //     title: 'Sides',
-    //     data: ['French Fries', 'Onion Rings', 'Fried Shrimps'],
-    // },
-    // {
-    //     title: 'Drinks',
-    //     data: ['Water', 'Coke', 'Beer'],
-    // },
-    // {
-    //     title: 'Desserts',
-    //     data: ['Cheese Cake', 'Ice Cream'],
-    // },
 ];
-
-// const Item = ({ title }) => (
-//     <View style={styles.item}>
-//         <Text style={styles.title}>{title}</Text>
-//     </View>
-// );
 
 const Main = ({ navigation }) => (
     <SafeAreaView>

@@ -3,11 +3,13 @@ import { SafeAreaView, StatusBar, StyleSheet, Text } from 'react-native';
 import { gStyle } from './styles/style';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
-import MainStack from './navigate';
+import FirstStack from './navigate';
 
 const fonts = () => Font.loadAsync({
   'source-sans': require('./assets/fonts/SourceSansPro-SemiBold.ttf'),
-  'open-sans': require('./assets/fonts/OpenSans-Regular.ttf')
+  'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+  'bold': require('./assets/fonts/exljbris-Museo-Cyrl-700.ttf'),
+  'normal': require('./assets/fonts/exljbris-Museo-Cyrl-500.ttf')
 });
 
 export default function App() {
@@ -15,7 +17,7 @@ export default function App() {
 
   if (font) {
     return (
-      <MainStack />
+      <FirstStack />
     );
   } else {
     return (

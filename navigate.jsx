@@ -1,4 +1,5 @@
 import React from 'react';
+import First from './components/First';
 import Main from './components/Main';
 import Products from './components/Products';
 
@@ -11,6 +12,13 @@ export default function Navigate() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
+                <Stack.Screen
+                    name='First'
+                    component={First}
+                    options={{
+                        title: 'Чек-лист в роддом',
+                    }}
+                />
                 <Stack.Screen
                     name='Main'
                     component={Main}
