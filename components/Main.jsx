@@ -84,7 +84,7 @@ const DATA = [
 
 export default function Main({ navigation }) {
     const [value, setValue] = useState(DATA);
-    const { getItem, setItem } = useAsyncStorage('@storage_key');
+    const { getItem, setItem, removeItem } = useAsyncStorage('@storage_key');
 
     const readItemFromStorage = async () => {
         const jsonValue = await getItem();
@@ -107,6 +107,7 @@ export default function Main({ navigation }) {
 
     useEffect(() => {
         readItemFromStorage();
+        //        removeItem('@storage_key');
     }, []);
 
     return (

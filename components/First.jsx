@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     StyleSheet,
@@ -9,8 +9,52 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import { gStyle } from '../styles/style';
+import { useAsyncStorage } from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function First({ navigation }) {
+    const [value, setValue] = useState(0);
+    const { getItem, setItem } = useAsyncStorage('@storage_key');
+
+    const readItemFromStorage = async () => {
+        const jsonValue = await getItem();
+        // if (jsonValue === null) { TODO: обработать первую загрузку, когда нет стораджа
+        //     return DATA;
+        // } else {
+        const resp = JSON.parse(jsonValue); //TODO: обработать ошибки
+        let numCompletedItems = resp[0]['data'].filter(
+            (item) => item.checked === true //TODO: сделать деструктуризацию
+        ).length; //TODO: вынести в отдельную функцию
+        let numAllItems = resp[0]['data'].length;
+        setValue(numCompletedItems);
+
+        // }
+    };
+
+    useEffect(() => {
+        //readItemFromStorage();
+        // const clearAll = async () => {
+        //     try {
+        //         await AsyncStorage.clear();
+        //     } catch (e) {
+        //         // clear error
+        //     }
+        //     console.log('Done.');
+        // };
+        // clearAll();
+    }, [value]);
+
+    // useFocusEffect(
+    //     React.useCallback(() => {
+    //         readItemFromStorage();
+    //         // Do something when the screen is focused
+    //         return () => {
+    //             // Do something when the screen is unfocused
+    //             // Useful for cleanup functions
+    //         };
+    //     }, [])
+    // );
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
@@ -21,7 +65,7 @@ export default function First({ navigation }) {
                 >
                     <View style={[styles.item, { backgroundColor: '#d8629c' }]}>
                         <Text style={styles.text}>НА РОДЫ</Text>
-                        <Text style={styles.textQuantity}>10 / 32</Text>
+                        <Text style={styles.textQuantity}>{value} / 2</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity>
