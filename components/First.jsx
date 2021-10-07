@@ -19,22 +19,23 @@ export default function First({ navigation }) {
                         navigation.navigate('Main');
                     }}
                 >
-                    <View style={styles.itemFirst}>
+                    <View style={[styles.item, { backgroundColor: '#d8629c' }]}>
                         <Text style={styles.text}>НА РОДЫ</Text>
+                        <Text style={styles.textQuantity}>10 / 32</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <View style={styles.itemSecond}>
+                    <View style={[styles.item, { backgroundColor: '#529cd9' }]}>
                         <Text style={styles.text}>МАМЕ ПОСЛЕ РОДОВ</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <View style={styles.itemThird}>
+                    <View style={[styles.item, { backgroundColor: '#a7bf56' }]}>
                         <Text style={styles.text}>ДЛЯ МАЛЫША</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <View style={styles.itemFour}>
+                    <View style={[styles.item, { backgroundColor: '#ebae44' }]}>
                         <Text style={styles.text}>НА ВЫПИСКУ</Text>
                     </View>
                 </TouchableOpacity>
@@ -51,30 +52,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         textAlign: 'center',
     },
-    itemFirst: {
+    item: {
         borderRadius: 10,
-        backgroundColor: '#d8629c',
-        height: 100,
-        margin: 10,
-        justifyContent: 'center',
-    },
-    itemSecond: {
-        borderRadius: 10,
-        backgroundColor: '#529cd9',
-        height: 100,
-        margin: 10,
-        justifyContent: 'center',
-    },
-    itemThird: {
-        borderRadius: 10,
-        backgroundColor: '#a7bf56',
-        height: 100,
-        margin: 10,
-        justifyContent: 'center',
-    },
-    itemFour: {
-        borderRadius: 10,
-        backgroundColor: '#ebae44',
         height: 100,
         margin: 10,
         justifyContent: 'center',
@@ -83,5 +62,13 @@ const styles = StyleSheet.create({
         fontFamily: 'bold',
         fontSize: 35,
         textAlign: 'center',
+        color: 'white',
+    },
+    textQuantity: {
+        fontFamily: 'bold',
+        fontSize: 14,
+        textAlign: 'center',
+        color: 'white',
+        marginTop: 5,
     },
 });
